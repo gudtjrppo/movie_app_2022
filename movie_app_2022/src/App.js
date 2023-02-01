@@ -1,17 +1,27 @@
 import React from 'react';
 
-function Food(props){
-  console.log(props);
-  return <h3>I like Potato</h3>
-}
+class App extends React.Component {
+  state = {
+    count:0,
+  };
+  
+  add = () => {
+    this.setState({ count : this.state.count + 1 });
+  };
 
-function App(){
-  return(
-    <div>
-      <h1>Hello</h1>
-      <Food fav="kimchi" something={true} papapapapa={['hello', 1, 2, 3, 4, true]} />
-    </div>
-  );
+  minus = () => {
+    this.setState({ count : this.state.count - 1 });
+  };
+
+  render() {
+    return (
+      <div>
+        <h3>The number is : {this.state.count}</h3>
+        <button onClick={this.add}>Add</button>
+        <button onClick={this.minus}>Minus</button>
+      </div>
+    );
+  }
 }
 
 export default App;
